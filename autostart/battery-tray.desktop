@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=bash -c "/home/maxim/projects/battery-tray/scripts/run_battery_tray.sh"
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=Battery Tray
+Comment=Start battery tray app at login
+Terminal=false

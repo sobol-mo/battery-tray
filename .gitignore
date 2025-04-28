@@ -1,0 +1,26 @@
+# Byte-compiled / optimized / compiled Python files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Python egg files
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Icon cache (if generated dynamically)
+icons/*.cache
