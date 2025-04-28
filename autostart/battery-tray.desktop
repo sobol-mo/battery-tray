@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=bash -c "/home/maxim/projects/battery-tray/scripts/run_battery_tray.sh"
+Exec=bash -c "/home/maxim/projects/battery-tray/src/battery_tray.sh"
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true

@@ -1,6 +1,7 @@
 #!/usr/bin python3
 
-##!/usr/bin/env python3
+# battery-tray.py
+# A simple battery charge limit indicator for Linux
 import os
 import signal
 import gi
