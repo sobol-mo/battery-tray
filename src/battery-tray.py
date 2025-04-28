@@ -19,7 +19,21 @@ ICON_100 = os.path.join(BASE_DIR, 'icons', '100_32x32.png')
 ICON_80 = os.path.join(BASE_DIR, 'icons', '80_32x32.png')
 ICON_60 = os.path.join(BASE_DIR, 'icons', '60_32x32.png')
 
+# Function to read the current charge control threshold
+def read_threshold():
+    try:
+        with open('/sys/class/power_supply/BAT0/charge_control_end_threshold', 'r') as f:
+            return int(f.read().strip())
+    except Exception as e:
+        print(f"Error reading current threshold: {e}")
+        return 100  # Fallback to 100 if there's an error
 
+
+# Function to set the charge control threshold
+# This function requires root privileges to modify the system file
+# You can use pkexec to run the command as root
+# Alternatively, you can use a script with sudo permissions
+# def set_threshold(value):
 def set_threshold(value):
     os.system(f"pkexec bash -c 'echo {value} > /sys/class/power_supply/BAT0/charge_control_end_threshold'")
     #os.system(f"sudo /usr/local/bin/set_charge_limit.sh {value}")
@@ -44,19 +58,15 @@ def quit(_):
 
 def main():
     global indicator
-    # Read the current charge control end threshold
-    try:
-        with open('/sys/class/power_supply/BAT0/charge_control_end_threshold', 'r') as f:
-            current_threshold = int(f.read().strip())
-        if current_threshold == 60:
-            default_icon = ICON_60
-        elif current_threshold == 80:
-            default_icon = ICON_80
-        else:
-            default_icon = ICON_100
-    except Exception as e:
-        print(f"Error reading current threshold: {e}")
-        default_icon = ICON_100  # Fallback to default icon
+   
+    current_threshold = read_threshold()
+
+    if current_threshold == 60:
+        default_icon = ICON_60
+    elif current_threshold == 80:
+        default_icon = ICON_80
+    else:
+        default_icon = ICON_100
 
     indicator = AppIndicator3.Indicator.new(
         APPINDICATOR_ID,
