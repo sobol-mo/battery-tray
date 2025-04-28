@@ -7,7 +7,7 @@ name = "battery-tray"
 version = "0.1.0"
 description = "Tray utility to manage battery charge thresholds"
 authors = [
-    { name="Your Name", email="your@email.com" },
+    { name="Max S", email="" },
 ]
 dependencies = [
 

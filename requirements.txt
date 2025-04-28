@@ -1,0 +1,3 @@
+"Install system packages first using apt, then install Python dependencies if any."
+
+PyGObject
