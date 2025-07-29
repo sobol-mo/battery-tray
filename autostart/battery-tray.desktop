@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=sh -c 'python3 /home/maxim/projects/battery-tray/src/battery-tray.py >> /home/maxim/battery-tray.log 2>&1'
+Exec=sh -c 'sleep 20 && /usr/bin/python3 /home/maxim/projects/battery-tray/src/battery-tray.py >> /home/maxim/battery-tray.log 2>&1'
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true
